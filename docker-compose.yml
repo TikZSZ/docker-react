@@ -1,0 +1,19 @@
+version: "3"
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      
+    ports: 
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./:/app
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./:/app
+    command: ["yarn","test"]
+  
